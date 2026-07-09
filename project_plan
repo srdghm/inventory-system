@@ -1,0 +1,41 @@
+Material
+Purchase
+PurchaseItem
+Estimate
+EstimateItem
+Supplier
+Location
+
+Inventory Management System
+│
+├── Dashboard
+├── Material Management
+├── Purchase Management
+├── Supplier Management
+├── Estimate Management
+├── Inventory Reports
+├── Search
+├── SQLite Database
+├── Git History
+└── Professional Project Structure
+Phase 1 ✅ Project Design
+
+Phase 2 ⏳ Reusable Sidebar Widget
+
+Phase 3 Dashboard Screen
+
+Phase 4 Navigation System
+
+Phase 5 Material Model
+
+Phase 6 SQLite Database
+
+Phase 7 Material CRUD
+
+Phase 8 Purchase Module
+
+Phase 9 Estimate Module
+
+Phase 10 Reports
+
+Phase 11 Polish & Packaging
