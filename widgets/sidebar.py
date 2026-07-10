@@ -1,6 +1,7 @@
 from textual.containers import Vertical
 from textual.app import ComposeResult
 from textual.widgets import Button, Label
+from messages import NavigationRequested
 
 
 class Sidebar(Vertical):
@@ -17,3 +18,7 @@ class Sidebar(Vertical):
         yield Label("Inventory Management", id="sidebar-title")
         for item in self.MENU_ITEMS:
             yield Button(item["label"], id=item["id"], classes="nav-button")
+
+    def on_button_pressed(self, event : Button.Pressed) -> None:
+         navigation_requested = NavigationRequested(str(event.button.id))
+         self.post_message(navigation_requested)
