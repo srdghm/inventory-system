@@ -4,7 +4,7 @@ from widgets.sidebar import Sidebar
 from messages import NavigationRequested
 from screens.dashboard_screen import DashboardScreen
 from screens.material_screen import MaterialScreen
-
+from inventory.db.database import create_tables
 
 class InventoryApp(App):
 
@@ -22,6 +22,8 @@ class InventoryApp(App):
             yield Container(id="content")
 
     def on_mount(self) -> None:
+         
+        create_tables()
         self.post_message(
             NavigationRequested("dashboard")
         )
