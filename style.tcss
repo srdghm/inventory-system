@@ -1,6 +1,17 @@
-#sidebar {
+Sidebar {
     width: 25;
+    dock: left;
+    padding: 1;
+    background: $surface;
 }
-#content {
-    width: 1fr;
+
+#sidebar-title {
+    content-align: center middle;
+    text-style: bold;
+    margin-bottom: 1;
+}
+
+Sidebar Button {
+    width: 100%;
+    margin-bottom: 1;
 }
