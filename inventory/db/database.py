@@ -12,7 +12,7 @@ DATABASE_PATH = DATA_DIR / "inventory.db"
 
 def get_connection():
     return sqlite3.connect(DATABASE_PATH)
-
+   
 
 def create_tables():
 
@@ -31,3 +31,4 @@ def create_tables():
 
     connection.commit()
     connection.close()
+#get_connection()
