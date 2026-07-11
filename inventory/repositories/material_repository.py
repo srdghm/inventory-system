@@ -25,7 +25,7 @@ class MaterialRepository:
                     material.name,
                     material.unit,
                     material.rate,
-                   material.quantity,
+                    material.quantity,
                     ),
                 )
         material.id = cursor.lastrowid

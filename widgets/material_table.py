@@ -12,6 +12,7 @@ class MaterialTable(DataTable):
             "Quantity"
         )
     def load_materials (self, materials: list[Material]) -> None:
+        self.clear()
         for material in materials:
             self.add_row(
                 str(material.id), 
