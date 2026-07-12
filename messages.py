@@ -1,4 +1,3 @@
-from widgets.material_table import MaterialTable
 from textual.message import Message
 from models.material import Material
 
@@ -13,7 +12,3 @@ class AddMaterialRequested(Message):
 	def __init__(self, material: Material):
 		super().__init__()
 		self.material = material
-
-class MaterialFormCancelRequested(Message):
-	def __init__(self):
-		super().__init__()

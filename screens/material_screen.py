@@ -1,6 +1,6 @@
 from textual.containers import Horizontal,Vertical
 
-from messages import AddMaterialRequested, MaterialFormCancelRequested
+from messages import AddMaterialRequested
 from textual.widget import Widget
 from textual.widgets import Label, Button
 from widgets.material_table import MaterialTable
@@ -19,6 +19,8 @@ class MaterialScreen(Widget):
                 with Vertical():
                     yield Button(label="Add Material", id="add_material")
                     yield Button(label="Delete Material", id="delete_material")
+                    yield Button(label = "Edit Material", id = "edit_material")
+                    yield Button(label="Insert Material", id= "insert_material")
 
     def on_mount(self):
         repository = MaterialRepository()
@@ -29,26 +31,27 @@ class MaterialScreen(Widget):
         table.load_materials(materials)
 
     def on_button_pressed(self, event: Button.Pressed) -> None:
+        
         if event.button.id == "add_material":
             form = self.query_one(MaterialForm)
             form.show()
-            table = self.query_one(MaterialTable)
-            table.add_class("hidden")
-
+            
         elif event.button.id == "delete_material":
             self.notify("Material Deleted")
+
+        elif event.button.id == "edit_material":
+            self.notify("Material Edited")
+
+        elif event.button.id == "insert_material":
+            self.notify("Material Inserted")
 
     def on_add_material_requested(self, message: AddMaterialRequested) -> None:
         repository = MaterialRepository()
         repository.add(message.material)
+        materials = repository.get_all()
         form = self.query_one(MaterialForm)
         form.clear()
-        self.notify("material added")
-
-    def on_material_form_cancel_requested(self, message: MaterialFormCancelRequested):
-        form = self.query_one(MaterialForm)
-        form.hide()
         table = self.query_one(MaterialTable)
-        table.remove_class("hidden")
-     
+        table.load_materials(materials)
+        self.notify("material added")
         

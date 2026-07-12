@@ -2,7 +2,7 @@ from textual.app import ComposeResult
 from textual.widgets import Label, Input, Button
 from textual.containers import Vertical, Horizontal
 from models.material import Material
-from messages import AddMaterialRequested, MaterialFormCancelRequested
+from messages import AddMaterialRequested
 
 
 class MaterialForm(Vertical):
@@ -25,7 +25,8 @@ class MaterialForm(Vertical):
             yield Button("Cancel", id="cancel")
     def on_button_pressed(self, event: Button.Pressed) -> None:
         if event.button.id == "cancel":
-            self.post_message(MaterialFormCancelRequested())
+            self.clear()
+            self.hide()
         if event.button.id == "save":
             
             name = self.query_one("#name", Input).value
