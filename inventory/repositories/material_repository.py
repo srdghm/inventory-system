@@ -30,3 +30,15 @@ class MaterialRepository:
                 )
         material.id = cursor.lastrowid
 
+    def remove_row(self, id: int) -> None:
+
+        with get_connection() as connection:
+            cursor = connection.cursor()
+
+            cursor.execute(
+                "DELETE FROM materials WHERE id=?", (id,)
+                
+            )
+
+            connection.commit()
+
